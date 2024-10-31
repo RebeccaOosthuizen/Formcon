@@ -86,14 +86,14 @@ export default function ContactPage() {
           {status && <p className="mt-4 text-green-600">{status}</p>}
         </div>
 
-        <div className="w-full md:w-3/5 flex flex-col ">
+        <div className="w-full md:w-3/5 flex flex-col">
           <h2 className="text-xl mb-4">Where to Find Us</h2>
-          <div className="rounded-lg shadow-lg relative h-full">
+          <div className="rounded-lg shadow-lg relative h-full ">
             <img
               src={"./img5.jpg"}
               className="object-cover rounded-lg"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-60 portrait:w-full flex items-center p-4 rounded-lg justify-center flex-col">
+            <div className="absolute inset-0 bg-black bg-opacity-60 portrait:w-full flex items-center p-4 rounded-lg justify-center flex-col portrait:text-sm">
               <div className=" text-white h-full w-full flex items-center justify-center flex-col">
                 <div className="flex items-center">
                   <a
@@ -102,9 +102,9 @@ export default function ContactPage() {
                   >
                     <Image
                       src={Whatsapp}
+                      width={30}
+                      height={30}
                       alt="WhatsApp"
-                      width={40}
-                      height={40}
                       className="rounded-md"
                     />
                   </a>
@@ -115,14 +115,17 @@ export default function ContactPage() {
                     <Image
                       src={FB}
                       alt="Facebook"
-                      width={40}
-                      height={40}
+                      width={30}
+                      height={30}
                       className="ml-3 rounded-md"
                     />
                   </a>
                 </div>
-                <p className="mb-2 mt-4">
-                  <strong>Langhoven Market - Stalls 40 and 41</strong>
+                <p className="mb-0 mt-2">
+                  <strong>Langhoven Market</strong>
+                </p>
+                <p className="mb-2 mt-0">
+                  <strong>Stalls 40 and 41</strong>
                 </p>
                 <p className="mb-1">22 Elias Motsoaledi Street</p>
                 <p className="mb-1">Langenhoven Park</p>
