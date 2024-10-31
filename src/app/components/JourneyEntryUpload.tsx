@@ -8,7 +8,6 @@ export default function JourneyEntryUpload() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [photos, setPhotos] = useState<File[]>([]);
-  const [uploadedPhotoURLs, setUploadedPhotoURLs] = useState<string[]>([]);
 
   const uploadPhoto = async (file: File): Promise<string> => {
     const fileRef = ref(storage, `journey_photos/${title}/${file.name}`);
@@ -27,7 +26,6 @@ export default function JourneyEntryUpload() {
   const handleSubmit = async () => {
     try {
       const urls = await Promise.all(photos.map((file) => uploadPhoto(file)));
-      setUploadedPhotoURLs(urls);
 
       const journeyData = {
         title,
@@ -48,7 +46,6 @@ export default function JourneyEntryUpload() {
     setTitle("");
     setDescription("");
     setPhotos([]);
-    setUploadedPhotoURLs([]);
   };
 
   return (
