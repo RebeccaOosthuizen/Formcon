@@ -16,7 +16,7 @@ interface Product {
 
 export default function ProductsPage() {
   const [products, setProducts] = useState<Product[]>([]);
-  const router = useRouter(); // Initialize the router for client-side navigation
+  const router = useRouter(); 
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,7 +24,6 @@ export default function ProductsPage() {
         const productsCollection = collection(db, 'products');
         const productsSnapshot = await getDocs(productsCollection);
 
-        // Map through each document in the snapshot and calculate min/max prices
         const productsList: Product[] = productsSnapshot.docs.map(doc => {
           const data = doc.data();
           const priceValues = Object.values(data.prices) as number[];
@@ -52,27 +51,25 @@ export default function ProductsPage() {
   }, []);
 
   const handleViewDetails = (productId: string) => {
-    router.push(`/products/${productId}`); // Use router.push to navigate
+    router.push(`/products/${productId}`); 
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 mt-16">
+    <div className='md:mx-8 md:px-12 px-8 mt-20'>
+      <h1 className="text-4xl font-bold mb-4">PRODUCTS</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6" >
+      
       {products.map(product => (
-        <div key={product.id} className="product-card bg-white shadow-lg rounded-lg p-4">
+        <div key={product.id} onClick={() => handleViewDetails(product.id)} className="product-card bg-white shadow-lg rounded-lg p-4 hover:shadow-2xl transition duration-200 ease-in-out flex flex-col justify-between hover:cursor-pointer">
           {product.photos[0] && (
-            <img src={product.photos[0]} alt={product.name} className="w-full object-cover rounded-md" />
+            <img src={product.photos[0]} alt={product.name} className="w-full min-h-96 object-cover rounded-md" />
           )}
-          <h2 className="text-xl font-bold mt-4">{product.name}</h2>
-          <p className="text-gray-500 mt-2">{product.description}</p>
-          <p className="text-lg font-semibold mt-2">Price Range: ${product.minPrice} - ${product.maxPrice}</p>
-          <button
-            onClick={() => handleViewDetails(product.id)} // Use handler for client-side navigation
-            className="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-          >
-            View Details
-          </button>
+          <div>
+          <h2 className="text-2xl font-bold mt-4">{product.name}</h2>
+          <p className="text-lg text-gray-500 font-semibold ">R{product.minPrice} - R{product.maxPrice}</p>
+          </div>
         </div>
       ))}
-    </div>
+    </div></div>
   );
 }

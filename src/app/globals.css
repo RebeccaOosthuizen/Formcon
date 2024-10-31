@@ -20,10 +20,26 @@ body {
 }
 
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 *::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
+}
+
+.carousel-scroll {
+  scrollbar-width: thin;
+  -ms-overflow-style: auto; 
+  overflow-x: auto;
+}
+
+.carousel-scroll::-webkit-scrollbar {
+  display: block;
+  height: 8px; 
+}
+
+.carousel-scroll::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
 }

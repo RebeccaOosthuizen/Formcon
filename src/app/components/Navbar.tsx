@@ -10,8 +10,8 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white text-black p-4 fixed w-full top-0 z-50 shadow-md">
-      <div className="w-[95%] mx-auto flex items-center justify-between">
+    <nav className="bg-white text-black py-4 px-6 fixed w-full top-0 z-50 shadow-md">
+      <div className="w-full mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           FORMCON
         </Link>
@@ -40,8 +40,7 @@ const Navbar: React.FC = () => {
           </div>
         </button>
       </div>
-
-      {/* Mobile Menu Dropdown */}
+s
       {isOpen && (
         <div
           className={`md:hidden transform transition-transform duration-300 ease-out ${
