@@ -32,10 +32,10 @@ export default function ProductDetail({
 
   return (
     <div className="mt-16 pt-3">
-      <h1 className="text-3xl font-bold ml-6 ">{product.name}</h1>
+      <h1 className="text-3xl font-bold ml-6 mr-6">{product.name}</h1>
 
       {product.description && (
-        <p className="mt-2 text-lg text-gray-700 ml-6">{product.description}</p>
+        <p className="mt-2 text-lg text-gray-700 ml-6 mr-6">{product.description}</p>
       )}
 
       <div className="mt-6 overflow-x-scroll w-[100vw]">
