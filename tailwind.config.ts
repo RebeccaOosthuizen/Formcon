@@ -12,6 +12,13 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        bebas: ['Bebas Neue', 'cursive'],
+        alfa: ['Alfa Slab One', 'serif'],
+        open: ['Open Sans', 'sans-serif'],
+        bree: ['Bree Serif', 'serif'],
+      },
     },
   },
   plugins: [],
