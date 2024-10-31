@@ -31,7 +31,7 @@ export default function JourneyPage() {
   }, []);
 
   return (
-    <div className="md:mx-8 md:px-12 px-8 mt-20">
+    <div className="md:mx-8 md:px-12 px-4 mt-20">
       <h1 className="text-4xl font-bold mb-4">JOURNEY</h1>
       <div className="space-y-8">
         {entries.map(entry => (

@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white text-black py-4 px-6 fixed w-full top-0 z-50 shadow-md">
+    <nav className="bg-white text-black py-4 px-6 fixed w-full top-0 z-50 shadow-md max-w-[100vw]">
       <div className="w-full mx-auto flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold">
           FORMCON
@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
           </div>
         </button>
       </div>
-s
+
       {isOpen && (
         <div
           className={`md:hidden transform transition-transform duration-300 ease-out ${

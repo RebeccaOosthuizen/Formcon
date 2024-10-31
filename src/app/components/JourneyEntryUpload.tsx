@@ -1,13 +1,12 @@
 "use client";
-import { useState } from 'react';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../config/firebase';
-
+import { useState } from "react";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { db, storage } from "../config/firebase";
 
 export default function JourneyEntryUpload() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [photos, setPhotos] = useState<File[]>([]);
   const [uploadedPhotoURLs, setUploadedPhotoURLs] = useState<string[]>([]);
 
@@ -36,51 +35,65 @@ export default function JourneyEntryUpload() {
         photos: urls,
       };
 
-      await addDoc(collection(db, 'journeyEntries'), journeyData);
-      alert('Journey entry added successfully');
+      await addDoc(collection(db, "journeyEntries"), journeyData);
+      alert("Journey entry added successfully");
       resetForm();
     } catch (error) {
-      console.error('Error adding entry: ', error);
-      alert('Error adding entry. Check the console for details.');
+      console.error("Error adding entry: ", error);
+      alert("Error adding entry. Check the console for details.");
     }
   };
 
   const resetForm = () => {
-    setTitle('');
-    setDescription('');
+    setTitle("");
+    setDescription("");
     setPhotos([]);
     setUploadedPhotoURLs([]);
   };
 
   return (
-    <div className="p-6">
-      <h2>Upload New Journey Entry</h2>
-      <input
-        type="text"
-        placeholder="Title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        className="mb-4 p-2 border border-gray-300 rounded w-full"
-      />
+    <div>
+      <h2 className="mb-2">Upload New Journey Entry</h2>
+      <div className="p-4 bg-[#c9d6cc] rounded-md">
+        <input
+          type="text"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="mb-4 p-2 border border-gray-300 rounded w-full"
+        />
 
-      <textarea
-        placeholder="Description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        className="mb-4 p-2 border border-gray-300 rounded w-full"
-        rows={4}
-      />
+        <textarea
+          placeholder="Description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="mb-4 p-2 border border-gray-300 rounded w-full"
+          rows={4}
+        />
 
-      <input
-        type="file"
-        multiple
-        onChange={handleFileInput}
-        className="mb-2"
-      />
+        <input
+          type="file"
+          multiple
+          onChange={handleFileInput}
+          className="mb-2"
+        />
 
-      <button onClick={handleSubmit} className="bg-green-500 text-white px-4 py-2 rounded">
-        Submit Entry
-      </button>
+        <br />
+        <div className="flex justify-between items-center">
+          <button
+            onClick={handleSubmit}
+            className="bg-[#233326] text-white py-2 px-4 rounded hover:bg-[#344b38] transition duration-200 ease-in-out mt-2"
+          >
+            Submit Entry
+          </button>
+          <button
+            onClick={resetForm}
+            className="bg-[#677569] text-white py-2 px-4 rounded hover:bg-[#79867b] transition duration-200 ease-in-out"
+          >
+            Clear Form
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

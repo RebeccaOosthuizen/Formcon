@@ -32,10 +32,10 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-black bg-opacity-60 portrait:w-full flex items-center p-4 rounded-lg justify-center flex-col">
                 <div className="transition-transform duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer h-full w-full flex items-center justify-center flex-col">
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     Products
                   </p>
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     & Prices
                   </p>
                 </div>
@@ -51,10 +51,10 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-black bg-opacity-60 portrait:w-full flex items-center p-4 rounded-lg justify-center flex-col">
                 <div className="transition-transform duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer h-full w-full flex items-center justify-center flex-col">
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     See the
                   </p>
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     Journey
                   </p>
                 </div>
@@ -70,10 +70,10 @@ export default function HomePage() {
               />
               <div className="absolute inset-0 bg-black bg-opacity-60 portrait:w-full flex items-center p-4 rounded-lg justify-center flex-col">
                 <div className="transition-transform duration-300 ease-in-out transform hover:scale-105 hover:cursor-pointer h-full w-full flex items-center justify-center flex-col">
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     Get in
                   </p>
-                  <p className="text-white text-center font-bree text-7xl">
+                  <p className="text-white text-center font-bree landscape:text-7xl text-4xl">
                     Touch
                   </p>
                 </div>

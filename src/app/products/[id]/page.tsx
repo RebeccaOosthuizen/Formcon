@@ -1,7 +1,7 @@
-import { use } from 'react';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../../config/firebase';
-import Image from 'next/image';
+import { use } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../config/firebase";
+import Image from "next/image";
 
 interface Product {
   name: string;
@@ -22,58 +22,72 @@ async function fetchProductData(id: string) {
   }
 }
 
-export default function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+export default function ProductDetail({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
   const { id } = use(params);
   const product = use(fetchProductData(id));
 
   return (
-    <div className="p-6 mt-16">
-      <h1 className="text-3xl font-bold">{product.name}</h1>
-      
+    <div className="mt-16 pt-3">
+      <h1 className="text-3xl font-bold ml-6 ">{product.name}</h1>
+
       {product.description && (
-        <p className="mt-2 text-lg text-gray-700">{product.description}</p>
+        <p className="mt-2 text-lg text-gray-700 ml-6">{product.description}</p>
       )}
 
-      <div className="mt-6">
-        <div className="carousel-container flex overflow-x-scroll space-x-4 carousel-scroll ">
+      <div className="mt-6 overflow-x-scroll w-[100vw]">
+        <div className="carousel-container flex space-x-4 carousel-scroll portrait:pr-6">
           {product.photos.map((photo, index) => (
             <Image
               key={index}
               src={photo}
               alt={`${product.name} ${index + 1}`}
               width={300}
-              height={300}
-              className="object-cover rounded-lg"
+              height={3000}
+              className="object-cover rounded-lg ml-6 mb-2"
             />
           ))}
         </div>
       </div>
 
-      <div className="mt-8 bg-white">
-        <table className="min-w-full border border-gray-300">
-          <thead>
-            <tr>
-              <th className="border border-gray-300 px-4 py-2">Size</th>
-              {product.materials.map(material => (
-                <th key={material} className="border border-gray-300 px-4 py-2">{material}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {product.sizes.map(size => (
-              <tr key={size}>
-                <td className="border border-gray-300 px-4 py-2">{size}</td>
-                {product.materials.map(material => (
-                  <td key={`${size}_${material}`} className="border border-gray-300 px-4 py-2">
-                    {product.prices[`${size}_${material}`] !== undefined
-                      ? `R${product.prices[`${size}_${material}`]}`
-                      : '-'}
-                  </td>
+      <div className="overflow-x-scroll w-[100vw] portrait:pr-40">
+        <div className="mt-8 portrait:text-sm w-full portrait:mr-14">
+          <table className=" w-fit border border-gray-300 portrait:text-sm mx-6 portrait:mr-12 bg-white">
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-4 py-2">Size</th>
+                {product.materials.map((material) => (
+                  <th
+                    key={material}
+                    className="border border-gray-300 px-4 py-2"
+                  >
+                    {material}
+                  </th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {product.sizes.map((size) => (
+                <tr key={size}>
+                  <td className="border border-gray-300 px-4 py-2">{size}</td>
+                  {product.materials.map((material) => (
+                    <td
+                      key={`${size}_${material}`}
+                      className="border border-gray-300 px-4 py-2"
+                    >
+                      {product.prices[`${size}_${material}`] !== undefined
+                        ? `R${product.prices[`${size}_${material}`]}`
+                        : "-"}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
