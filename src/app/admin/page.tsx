@@ -1,12 +1,9 @@
-// pages/admin/login.tsx
-
 "use client";
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import {auth} from "../config/firebase"
-import router from 'next/router';
 
 
 export default function AdminLogin() {
@@ -18,7 +15,7 @@ export default function AdminLogin() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        router.push('/admin/dashboard'); // Redirect if user is logged in
+        router.push('/admin/dashboard');
       }
     });
     return () => unsubscribe();

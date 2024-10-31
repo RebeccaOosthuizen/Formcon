@@ -2,7 +2,7 @@
 "use client";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import AddProduct from "../../components/ProductUpload";
 import AddJourney from "../../components/JourneyEntryUpload";
@@ -41,7 +41,6 @@ export default function AdminDashboard() {
         </button>
       </div>
       
-      {/* Your dashboard content here */}
       <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-32 md:mt-12 mt-6 w-full">
         <div className="w-full md:w-1/2">
           <AddProduct />

@@ -1,11 +1,9 @@
-// ContactPage.tsx
 "use client";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import Image from "next/image";
 import FB from "../../../public/FBColour.png";
 import Whatsapp from "../../../public/WhatsAppColour.png";
-import Link from "next/link";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", contact: "", message: "" });

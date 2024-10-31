@@ -1,12 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
 };
 
 module.exports = {
   images: {
-    domains: ['firebasestorage.googleapis.com'], // Add Firebase Storage domain here
+    domains: ['firebasestorage.googleapis.com'],
   },
 };
 

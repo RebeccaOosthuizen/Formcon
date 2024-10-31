@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage, db } from "../config/firebase";
 
 export default function ProductUpload() {
@@ -47,7 +47,7 @@ export default function ProductUpload() {
   const handleSubmit = async () => {
     const productData = {
       name: productName,
-      description, // Add description to the product data
+      description,
       sizes,
       materials,
       prices,
